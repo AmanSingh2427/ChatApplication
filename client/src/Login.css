@@ -1,0 +1,99 @@
+/* Login.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5; /* Light gray background for the whole page */
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333; /* Dark gray color for the heading */
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  position: relative;
+  width: 100%; /* Ensure input container spans full width of the form */
+}
+
+.input-field {
+  width: 90%;
+  padding: 10px;
+  padding-right: 40px; /* Space for the icon */
+  border: none;
+  border-bottom: 2px solid #ccc; /* Line below the input field */
+  border-radius: 4px;
+  outline: none;
+  font-size: 16px;
+  background: transparent; /* No background to show only the line */
+}
+
+.input-field:focus {
+  border-bottom: 2px solid #007bff; /* Line color on focus */
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

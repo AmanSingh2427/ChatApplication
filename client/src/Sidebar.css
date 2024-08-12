@@ -1,0 +1,74 @@
+/* Sidebar.css */
+
+/* Sidebar Container */
+.sidebar {
+  width: 250px; /* Fixed width */
+  background-color: #343a40; /* Background color */
+  color: white; /* Text color */
+  display: flex; /* Flexbox for layout */
+  flex-direction: column; /* Stack items vertically */
+  padding: 20px; /* Padding */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow */
+  height: 78vh; /* Full viewport height */
+overflow-x: hidden;
+overflow-y: scroll;
+  position: relative; /* Positioned relative for potential adjustments */
+}
+
+/* Sidebar Search */
+.sidebar-search {
+  width: 100%; /* Full width */
+  padding: 10px 0px; /* Padding */
+  margin-bottom: 20px; /* Space below search bar */
+  border: 1px solid #ddd; /* Border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #495057; /* Background color */
+  color: white; /* Text color */
+}
+
+/* Sidebar User List */
+.sidebar-users {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+  margin-top: 20px; /* Space from the top */
+}
+
+/* Sidebar User Item */
+.sidebar-user-item {
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  padding: 10px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 10px; /* Space below items */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+/* Sidebar User Item Hover Effect */
+.sidebar-user-item:hover {
+  background-color: #495057; /* Hover background color */
+}
+
+/* User Profile Picture */
+.sidebar-user-pic {
+  width: 40px; /* Size */
+  height: 40px; /* Size */
+  border-radius: 50%; /* Circular shape */
+  margin-right: 10px; /* Space between picture and name */
+}
+
+/* User Name */
+.sidebar-user-name {
+  font-size: 16px; /* Font size */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Selected Sidebar User Item */
+.sidebar-user-item.selected {
+  background-color: #007bff; /* Selected background color */
+  color: white; /* Selected text color */
+  font-weight: bold; /* Bold text for selected item */
+}

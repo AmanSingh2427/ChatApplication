@@ -1,0 +1,99 @@
+.group-page {
+  padding: 8px 16px;
+  max-width: 470px;
+  margin: 0 auto;
+  background-color: #f8f9fa; /* Light background color for better contrast */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.group-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #343a40; /* Darker color for the header */
+}
+
+.group-page form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* #root {
+  margin-top: 22px;
+} */
+
+.group-page label {
+  margin-bottom: 10px;
+  font-weight: bold; /* Bold label text */
+}
+
+.group-page input[type="text"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #ced4da; /* Slightly lighter border color */
+}
+
+.full-names {
+  display: flex;
+  flex-direction: column;
+  height: 327px;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.group-page button {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.group-page button:hover {
+  background-color: #0056b3;
+}
+
+/* Back Button Styles */
+.back-button {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e6df7f;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}
+
+/* Notification Message */
+.notification {
+  background-color: #c3ca9a;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+

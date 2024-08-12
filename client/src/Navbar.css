@@ -1,0 +1,68 @@
+/* Navbar styling */
+.navbar {
+  background-color: #e9d2d2; /* Background color */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Padding */
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+}
+
+.navbar-container {
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Full width */
+}
+
+.logo {
+  font-size: 24px; /* Font size for logo */
+}
+
+.navbar-right {
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+}
+
+.icon-button {
+  background: none; /* No background */
+  border: none; /* No border */
+  color: #fff; /* Text color */
+  margin-left: 10px; /* Space between icons */
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.icon {
+  font-size: 18px; /* Font size for icons */
+}
+
+.notification-count {
+  background: red; /* Background color for notification */
+  border-radius: 50%; /* Circular shape */
+  padding: 2px 6px; /* Padding */
+  font-size: 12px; /* Font size */
+  margin-left: 5px; /* Space between icon and count */
+}
+
+.button-text {
+  margin-left: 5px; /* Space between icon and text */
+}
+
+.user-info {
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  margin-right: 20px; /* Space from the right edge */
+}
+
+.profile-picture {
+  width: 30px; /* Profile picture size */
+  height: 30px; /* Profile picture size */
+  border-radius: 50%; /* Circular shape */
+  margin-right: 10px; /* Space between picture and name */
+}
+
+.user-name {
+  font-size: 16px; /* Font size for user name */
+}
