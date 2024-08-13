@@ -25,11 +25,11 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h1 className="logo">ChatApp</h1>
+        <h1 className="logo">MyChatApp</h1>
         <div className="navbar-right">
           {user && (
             <div className="user-info">
-              <img src={`http://localhost:5000/${user.profilePicture}`} alt="Profile" className="profile-picture" />
+              <img src={`http://192.168.1.129:5000/${user.profilePicture}`} alt="Profile" className="profile-picture" />
               <span className="user-name">{user.username}</span>
             </div>
           )}

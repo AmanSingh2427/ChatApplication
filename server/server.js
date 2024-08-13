@@ -15,7 +15,7 @@ const port = 5000;
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: 'http://localhost:3000', // Update with your frontend URL
+    origin: 'http://192.168.1.129:3000', // Update with your frontend URL
     methods: ['GET', 'POST'],
   },
 });
@@ -226,7 +226,9 @@ app.get('/users/:id', verifyToken, async (req, res) => {
 
 
 
-// Endpoint to handle sending messages for single user
+const connectedUsers = {};
+
+// Endpoint to handle sending messages for a single user
 app.post('/send-message', verifyToken, (req, res) => {
   const { receiverId, message } = req.body;
   const senderId = req.userId; // User ID set by verifyToken middleware
@@ -246,19 +248,25 @@ app.post('/send-message', verifyToken, (req, res) => {
 
       const newMessage = result.rows[0];
 
-      // Emit the message to the receiver's room
-      io.to(receiverId).emit('receive-message', newMessage);
-      io.to(senderId).emit('receive-message', newMessage); // Emit to sender's room as well
+      // Emit the message to the receiver's room if they are online
+      const receiverSocketId = connectedUsers[receiverId];
+      if (receiverSocketId) {
+        io.to(receiverSocketId).emit('receive-message', newMessage);
+      }
+
+      // Emit to sender's room as well
+      const senderSocketId = connectedUsers[senderId];
+      if (senderSocketId) {
+        io.to(senderSocketId).emit('receive-message', newMessage);
+      }
 
       res.status(201).json(newMessage);
     }
   );
 });
 
-
-
-// fetch msg of users from table to chat page
-app.get('/messages',verifyToken, (req, res) => {
+// Fetch messages of users from the table to the chat page
+app.get('/messages', verifyToken, (req, res) => {
   console.log('User ID:', req.userId); // Log the user ID to verify authentication
 
   const { receiverId } = req.query;
@@ -281,13 +289,13 @@ app.get('/messages',verifyToken, (req, res) => {
   );
 });
 
-
 // Ensure socket connection is correctly set up
 io.on('connection', (socket) => {
   console.log('A user connected');
 
   // Handle joining a user room for private chat
   socket.on('join-room', (userId) => {
+    connectedUsers[userId] = socket.id;
     socket.join(userId);
     console.log(`User ${userId} joined room ${userId}`);
   });
@@ -295,7 +303,14 @@ io.on('connection', (socket) => {
   // Handle sending private messages
   socket.on('send-message', (messageData) => {
     const { receiverId } = messageData;
-    io.to(receiverId).emit('receive-message', messageData);
+    const receiverSocketId = connectedUsers[receiverId];
+
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit('receive-message', messageData);
+    } else {
+      console.log(`User ${receiverId} is not connected`);
+      // Optionally, you can store the message for later delivery when the user logs in
+    }
   });
 
   // Handle joining a group room for group chat
@@ -314,12 +329,18 @@ io.on('connection', (socket) => {
 
   // Handle user disconnection
   socket.on('disconnect', () => {
-    console.log('A user disconnected');
+    for (const userId in connectedUsers) {
+      if (connectedUsers[userId] === socket.id) {
+        delete connectedUsers[userId];
+        console.log(`User ${userId} disconnected`);
+        break;
+      }
+    }
   });
 });
 
-
 console.log("Server is connected");
+
 
 
 // fetch all the users at create group page
@@ -463,7 +484,5 @@ app.post('/add-group-members', async (req, res) => {
 
 
 
-
-server.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+server.listen(port, '192.168.1.129', function () {
+  console.log(`Server is running on http://192.168.1.129:${port}`); });

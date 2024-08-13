@@ -13,7 +13,7 @@ const Chat = ({ selectedUser, selectedGroup }) => {
 
   useEffect(() => {
     const userId = localStorage.getItem('user_id');
-    const socketIo = io('http://localhost:5000');
+    const socketIo = io('http://192.168.1.129:5000');
 
     if (selectedUser) {
       socketIo.emit('join-room', selectedUser);
@@ -46,7 +46,7 @@ const Chat = ({ selectedUser, selectedGroup }) => {
       if (selectedUser) {
         try {
           const token = localStorage.getItem('token');
-          const response = await axios.get('http://localhost:5000/messages', {
+          const response = await axios.get('http://192.168.1.129:5000/messages', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -63,7 +63,7 @@ const Chat = ({ selectedUser, selectedGroup }) => {
       if (selectedGroup) {
         try {
           const token = localStorage.getItem('token');
-          const response = await axios.get(`http://localhost:5000/groups/${selectedGroup}/messages`, {
+          const response = await axios.get(`http://192.168.1.129:5000/groups/${selectedGroup}/messages`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -84,7 +84,7 @@ const Chat = ({ selectedUser, selectedGroup }) => {
       if (selectedUser) {
         try {
           const token = localStorage.getItem('token');
-          const response = await axios.get(`http://localhost:5000/users/${selectedUser}`, {
+          const response = await axios.get(`http://192.168.1.129:5000/users/${selectedUser}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -101,7 +101,7 @@ const Chat = ({ selectedUser, selectedGroup }) => {
 
         try {
           const token = localStorage.getItem('token');
-          const response = await axios.get(`http://localhost:5000/groups/${selectedGroup}`, {
+          const response = await axios.get(`http://192.168.1.129:5000/groups/${selectedGroup}`, {
 
             headers: {
               Authorization: `Bearer ${token}`
@@ -133,7 +133,7 @@ const Chat = ({ selectedUser, selectedGroup }) => {
 
       try {
         if (selectedUser) {
-          const response = await axios.post('http://localhost:5000/send-message', {
+          const response = await axios.post('http://192.168.1.129:5000/send-message', {
             receiverId: selectedUser,
             message,
             senderId: userId,
@@ -151,7 +151,7 @@ const Chat = ({ selectedUser, selectedGroup }) => {
         }
 
         if (selectedGroup) {
-          const response = await axios.post('http://localhost:5000/send-group-message', {
+          const response = await axios.post('http://192.168.1.129:5000/send-group-message', {
             groupId: selectedGroup,
             message,
             senderId: userId,

@@ -14,7 +14,7 @@ const Group = () => {
   useEffect(() => {
     const fetchFullNames = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/fullnames');
+        const response = await axios.get('http://192.168.1.129:5000/fullnames');
         setFullNames(response.data);
       } catch (error) {
         console.error('Error fetching full names:', error);
@@ -56,7 +56,7 @@ const Group = () => {
 
     try {
       // Create group
-      const groupResponse = await axios.post('http://localhost:5000/create-group', {
+      const groupResponse = await axios.post('http://192.168.1.129:5000/create-group', {
         groupName,
       });
 
@@ -67,7 +67,7 @@ const Group = () => {
         .filter(user => checkedNames.includes(user.fullname))
         .map(user => user.id);
 
-      await axios.post('http://localhost:5000/add-group-members', {
+      await axios.post('http://192.168.1.129:5000/add-group-members', {
         groupId,
         userIds,
       });

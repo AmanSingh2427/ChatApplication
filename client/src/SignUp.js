@@ -68,7 +68,7 @@ const SignUp = () => {
       form.append('file', formData.file);
 
       try {
-        const response = await axios.post('http://localhost:5000/signup', form, {
+        const response = await axios.post('http://192.168.1.129:5000/signup', form, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

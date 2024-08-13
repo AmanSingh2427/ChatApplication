@@ -14,7 +14,7 @@ const Sidebar = ({ onSelectUser, onSelectGroup }) => {
         const token = localStorage.getItem('token');
         
         // Fetch users
-        const usersResponse = await axios.get('http://localhost:5000/users', {
+        const usersResponse = await axios.get('http://192.168.1.129:5000/users', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -22,7 +22,7 @@ const Sidebar = ({ onSelectUser, onSelectGroup }) => {
         setUsers(usersResponse.data);
 
         // Fetch groups
-        const groupsResponse = await axios.get('http://localhost:5000/groups', {
+        const groupsResponse = await axios.get('http://192.168.1.129:5000/groups', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -76,7 +76,7 @@ const Sidebar = ({ onSelectUser, onSelectGroup }) => {
             onClick={() => handleUserClick(user.id, 'user')}
           >
             <img
-              src={`http://localhost:5000/${user.profile_picture}`}
+              src={`http://192.168.1.129:5000/${user.profile_picture}`}
               alt={user.username}
               className="sidebar-user-pic"
             />

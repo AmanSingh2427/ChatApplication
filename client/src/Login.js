@@ -43,7 +43,7 @@ const Login = () => {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const response = await axios.post('http://localhost:5000/login', formData);
+        const response = await axios.post('http://192.168.1.129:5000/login', formData);
         console.log('Login successful', response.data);
   
         // Save the token and user data in localStorage
